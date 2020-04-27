@@ -1,6 +1,10 @@
 def resolve():
     '''
     code here
+
+    np.delete(nd.array, index , axis)   を使うとループを回している元が変わってしまうので注意
+    np.rot90(nd.array, k=1)
+    any(), all()
     '''
     import numpy as np
     H, W = [int(item) for item in input().split()]
