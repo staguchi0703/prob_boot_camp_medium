@@ -7,13 +7,11 @@ def resolve():
     Xs = [int(item) for item in input().split()]
     if N < M:
         Xs.sort()
-        memo = N-1
-        prev = Xs[0]
-        for i in range(1, M):
-            memo += min(Xs[i] - prev, N-1)
-            prev = Xs[i]
-        print(Xs[-1] - Xs[0] - memo)
-            
+        ds = [Xs[i] - Xs[i-1] for i in range(1, M)]
+        ds.sort()
+        # print(ds)
+        print(sum(ds[:M-N]))
+
     else:
         print(0)
 
