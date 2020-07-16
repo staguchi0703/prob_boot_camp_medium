@@ -23,34 +23,28 @@ class TestClass(unittest.TestCase):
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
-        input = """3 2
-1 2
-2 3"""
-        output = """POSSIBLE"""
+        input = """3
+acornistnt
+peanutbomb
+constraint"""
+        output = """1"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
-        input = """4 3
-1 2
-2 3
-3 4"""
-        output = """IMPOSSIBLE"""
+        input = """2
+oneplustwo
+ninemodsix"""
+        output = """0"""
         self.assertIO(input, output)
 
     def test_入力例_3(self):
-        input = """100000 1
-1 99999"""
-        output = """IMPOSSIBLE"""
-        self.assertIO(input, output)
-
-    def test_入力例_4(self):
-        input = """5 5
-1 3
-4 5
-2 3
-2 4
-1 4"""
-        output = """POSSIBLE"""
+        input = """5
+abaaaaaaaa
+oneplustwo
+aaaaaaaaba
+twoplusone
+aaaabaaaaa"""
+        output = """4"""
         self.assertIO(input, output)
 
 

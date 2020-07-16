@@ -6,27 +6,23 @@ def resolve():
     N, M = [int(item) for item in input().split()]
     edges = [[int(item) for item in input().split()] for _ in range(M)]
     
-    # togo列をつくってappendに使う
-    togo = [0 for _ in range(N+1)]
+    togo = [[] for _ in range(N+1)]
     for f, t in edges:
-        togo[f] = t
+        togo[f] += [t]
     
-    fp = [0 for _ in range(N+1)]
-    fp[1] = 1
-    que = collections.deque([1])
     is_found = False
 
+    que = collections.deque()
+    for goto in togo[1]:
+        que.append(goto)
+
+    is_found = False
     while que:
         node = que.popleft()
-        print(node)
-        if node == N:
-            que = False
-            is_found = True
-        if fp[node]:
-            pass
-        else:
-            que.append(togo[node])
-            fp[que] = 1
+        for next_node in togo[node]:
+            if next_node == N:
+                is_found = True
+            # print(next_node, is_found)
             
     print('POSSIBLE') if is_found else print('IMPOSSIBLE')
 
