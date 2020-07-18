@@ -20,32 +20,21 @@ class TestClass(unittest.TestCase):
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
-        input = """5
-MASHIKE
-RUMOI
-OBIRA
-HABORO
-HOROKANAI"""
-        output = """2"""
+        input = """7 1 3 6 7
+.#..#.."""
+        output = """Yes"""
         self.assertIO(input, output)
 
     def test_入力例_2(self):
-        input = """4
-ZZ
-ZZZ
-Z
-ZZZZZZZZZZ"""
-        output = """0"""
+        input = """7 1 3 7 6
+.#..#.."""
+        output = """No"""
         self.assertIO(input, output)
 
     def test_入力例_3(self):
-        input = """5
-CHOKUDAI
-RNG
-MAKOTO
-AOKI
-RINGO"""
-        output = """7"""
+        input = """15 1 3 15 13
+...#.#...#.#..."""
+        output = """Yes"""
         self.assertIO(input, output)
 
 

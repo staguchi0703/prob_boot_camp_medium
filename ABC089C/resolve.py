@@ -2,14 +2,23 @@ def resolve():
     '''
     code here
     '''
+    import collections
+    import itertools
     N = int(input())
-    Ss = [input() for _ in range(N)]
+    Ss = [input()[0] for _ in range(N)]
 
-    # MARCHで最大5C3の組み合わせ　（20）
-    # 各組合せの中は (n, m, l) = n*m*l個
-    # 全部足せばよい
-    # collections.Counter()でイニシャル同じの集める
+    march_letter = [item for item in Ss if item in ['M', 'A', 'R', 'C', 'H']]
+    march_cnt = collections.Counter(march_letter)
 
+    if len(march_cnt) < 3:
+        res = 0
+    else:
+        res_list = itertools.combinations(march_cnt.values(),3)
+
+        res = 0
+        for element in res_list:
+            res += element[0]*element[1]*element[2]
+    print(res)
 
 if __name__ == "__main__":
     resolve()
