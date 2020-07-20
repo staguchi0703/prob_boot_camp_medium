@@ -34,10 +34,26 @@
 
 ## [ARC093C-Traveling Plan](https://atcoder.jp/contests/arc093/tasks/arc093_a)
 
-## 方針
+### 方針
 
 * 距離の累積和を利用する
   * もし要素が一つなくなると・・・
     * 無くなったものがあったとして、ひとつづつ飛ぶと、`abs(A[i] - A[i+1]) + abs(A[i+1] - A[i+2])`
     * 無くなった物を飛ばして飛ぶと`abs(A[i] - A[i+2])`
     * 上記の差を累積和から引くと答えになる
+
+## ちょこっとメモ
+
+```
+import itertools
+
+comb = itertools.combinations(list, 組み合わせの数)
+```
+
+```
+comb = [
+  (a, b, c),
+  (a, c, d),
+  .......
+]
+```
