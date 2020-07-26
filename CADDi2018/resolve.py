@@ -3,7 +3,10 @@ def resolve():
     code here
     '''
     import collections
+    import copy
+
     N, P = [int(item) for item in input().split()]
+    P_org = copy.deepcopy(P)
 
     fact_list = [1]
 
@@ -14,9 +17,10 @@ def resolve():
             P //= cnt
         else:
             cnt += 1
+    fact_list.append(P)
 
     if N == 1:
-        res = P
+        res = P_org
     else:
         cnt_num = collections.Counter(fact_list[1:])
         res_list = []
@@ -27,9 +31,8 @@ def resolve():
         res = 1
         for item in res_list:
             res *= item
-
     print(res)
 
 if __name__ == "__main__":
     resolve()
-# なんかおかしい思ったように動いてない
+

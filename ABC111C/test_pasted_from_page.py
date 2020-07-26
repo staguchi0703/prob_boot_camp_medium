@@ -17,6 +17,9 @@ class TestClass(unittest.TestCase):
         sys.stdout.seek(0)
         out = sys.stdout.read()[:-1]
         sys.stdout, sys.stdin = stdout, stdin
+        print('------------')
+        print(out)
+        print('------------')
         self.assertEqual(out, output)
 
     def test_入力例_1(self):
@@ -32,8 +35,8 @@ class TestClass(unittest.TestCase):
         self.assertIO(input, output)
 
     def test_入力例_3(self):
-        input = """4
-1 1 1 1"""
+        input = """10
+1 1 1 1 1 1 1 2 1 2"""
         output = """2"""
         self.assertIO(input, output)
 
